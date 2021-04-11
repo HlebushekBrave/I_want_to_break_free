@@ -1,0 +1,37 @@
+#считываем текст из файла
+with open("input.txt", "r") as f:
+    lines = f.readlines()
+#в файл "output.txt" будет записан результат
+with open("output.txt", "w") as f_out:
+    all_words_list = []
+    unique_list = []
+    connections=[]
+    for s in lines:
+        # удалить все символы, кроме !?,. из строки
+        s=s.replace("\n", "")
+        punct = '''()[]{}'@#$%:"\/^;*_'''
+        for i in s:
+            if i in punct:
+                s = s.replace(i, "")
+        #разделим текст на слова
+        slova = s.split(" ")
+        all_words_list.append(slova)
+        #создаем список уникальных слов
+        for word in slova:
+            if word not in unique_list:
+                unique_list.append(word)
+        # список стартовых слов (для рандома)
+        start_list = []
+        for i in slova:
+            if i.istitle() == True:
+                start_list.append(i)
+        for i in range(0, len(unique_list)):
+            links = []
+            for w in range(0, len(slova)):
+                if (w + 1) != len(slova):
+                    if ((unique_list[i] == slova[w])):
+                        links.append(slova[w + 1])
+            connections.append(links)
+    print(all_words_list, file=f_out, end='\n')
+    print(unique_list, file=f_out, end='\n')
+    print(connections, file=f_out, end='\n')
