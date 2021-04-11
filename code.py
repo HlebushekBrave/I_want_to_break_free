@@ -1,3 +1,7 @@
+#Case-study 7
+#Adristi Fauzi (60%)
+#Raspopova Alexandra (40%)
+#Belozertseva Maria (30%)
 file_in = open ("input.txt", 'r')
 file_out = open ("output.txt", 'w')
 text = file_in.readlines()
