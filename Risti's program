@@ -1,0 +1,45 @@
+file_in = open ("input.txt", 'r')
+file_out = open ("output.txt", 'w')
+text = file_in.readlines()
+textarray = []
+wordsarray = []
+punct = '''()[]{}'@#$%:"\/^;*_'''
+punct_ok = ['.',',','!','?']
+new_text = ''
+for s in text: #every one line
+    #print(s)
+    s = s.replace('\n', ' ')
+    for i in s: #every char
+        #print(i)
+        if i in punct:
+            s = s.replace(i, "")
+    new_text = new_text+s
+new_text = list(new_text)
+for x in range (len(new_text)):
+    if new_text[x] in punct_ok:
+        if new_text[x-1] == ' ':
+            new_text[x-1] = ''
+            #print(new_text)
+all_text = ''
+for m in new_text:
+    all_text = all_text+m
+wordsarray = all_text.split(' ')
+uniq_words = []
+for y in wordsarray:
+    if y in uniq_words:
+        y = y
+    else:
+        uniq_words.append(y)
+for y in uniq_words:
+    array1 = []
+    for u in range(len(wordsarray)):
+        if wordsarray[u] != wordsarray[-1]:
+            if wordsarray[u] == y:
+                array1.append(wordsarray[u + 1])
+        else:
+            wordsarray[u] = wordsarray[u]
+    if len(array1) > 0:
+        print(y, end=' ', file = file_out)
+        print(array1, file = file_out)
+file_in.close()
+file_out.close()
