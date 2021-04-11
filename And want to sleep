@@ -5,7 +5,7 @@ with open("input.txt", "r") as f:
 with open("output.txt", "w") as f_out:
     for s in lines:
         # удалить все символы, кроме !?,. из строки
-        s=s.replace("\n", "")
+        s=s.replace("\n", " ")
         punct = '''()[]{}'@#$%:"\/^;*_'''
         for i in s:
             if i in punct:
