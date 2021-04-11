@@ -3,8 +3,8 @@
 #Raspopova Alexandra (40%)
 #Belozertseva Maria (30%)
 import random
-file_in = open ("input1.txt", 'r')
-file_out = open ("output.txt3", 'w')
+file_in = open ("input.txt", 'r')
+file_out = open ("output.txt", 'w')
 text = file_in.readlines()
 textarray = []
 wordsarray = []
