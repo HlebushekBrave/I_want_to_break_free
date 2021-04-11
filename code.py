@@ -42,6 +42,7 @@ for y in uniq_words:
     if len(array1) > 0:
         print(y, end=' ', file = file_out)
         print(array1, file = file_out)
+#starting words
 for i in wordsarray:
     if i.istitle() == True:
         start_list.append(i)
