@@ -1,6 +1,24 @@
 with open("input.txt", "r") as f:
     lines = f.readlines()
 with open("output.txt", "w") as f_out:
-   for line in lines:
-       line=line.replace("."," ")
-       print(line[0:len(line)], file=f_out, end='')
+    for s in lines:
+        punct = '''()[]{}'@#$%:"\/^;*_'''
+        # удалить все символы, кроме !?,. из строки
+        for i in s:
+            if i in punct:
+                s = s.replace(i, "")
+        if s[-1] == ".":
+            s = s.replace(s[-1], "")
+        slova = s.split(" ")
+        ''' Create a list of unique words.'''
+        unique_list = []
+        start_list = []
+        # список уникальных слов
+        for word in slova:
+            if word not in unique_list:
+                unique_list.append(word)
+        print(unique_list, file=f_out, end='\n')
+        # список стартовых слов
+        for i in slova:
+            if i.istitle() == True:
+                start_list.append(i)
