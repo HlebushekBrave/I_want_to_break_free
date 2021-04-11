@@ -38,5 +38,13 @@ for y in uniq_words:
     if len(array1) > 0:
         print(y, end=' ', file = file_out)
         print(array1, file = file_out)
+for i in wordsarray:
+    if i.istitle() == True:
+        start_list.append(i)
+number_sentences=int(input())
+for i in range(0, number_sentences):
+    o = random.randint(0, len(start_list)-1)
+    sentence = start_list[o]
+    print(sentence)
 file_in.close()
 file_out.close()
