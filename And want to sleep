@@ -1,3 +1,8 @@
+#Case-study 7
+#Raspopova Alexandra 
+#Adristi Fauzi 
+#Belozertseva Maria 
+
 #считываем текст из файла
 with open("input.txt", "r") as f:
     lines = f.readlines()
