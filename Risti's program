@@ -7,10 +7,8 @@ punct = '''()[]{}'@#$%:"\/^;*_'''
 punct_ok = ['.',',','!','?']
 new_text = ''
 for s in text: #every one line
-    #print(s)
     s = s.replace('\n', ' ')
     for i in s: #every char
-        #print(i)
         if i in punct:
             s = s.replace(i, "")
     new_text = new_text+s
@@ -19,7 +17,6 @@ for x in range (len(new_text)):
     if new_text[x] in punct_ok:
         if new_text[x-1] == ' ':
             new_text[x-1] = ''
-            #print(new_text)
 all_text = ''
 for m in new_text:
     all_text = all_text+m
